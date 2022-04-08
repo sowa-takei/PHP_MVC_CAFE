@@ -42,7 +42,7 @@
         <textarea name="content" class = "form-control" placeholder="お問合せ内容を入力"></textarea>
       </div>
     </div>
-    <button type="submit">確認画面へ</button>
+    <button type="submit" class="btn btn-success">確認画面へ</button>
   </form>
   <div>
 </div>

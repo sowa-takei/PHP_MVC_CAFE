@@ -69,47 +69,58 @@ $fromName = "お問い合わせテスト";
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせフォーム</title>
   <link rel="stylesheet" href="../public/css/confirm.css">
+  <link rel="stylesheet" href="../public/css/css/bootstrap.min.css">
 </head>
 <body>
-  <div><h1 class="company">Company Name</h1></div>
-  <div><h2>お問い合わせ</h2></div>
-  <div class="main">
-    <form action="confirm.php" method="post">
-      <input type="hidden" name="name" value="<?php echo $name; ?>">
-      <input type="hidden" name="name_kana" value="<?php echo $name_kana; ?>">
-      <input type="hidden" name="tel" value="<?php echo $tel; ?>">
-      <input type="hidden" name="email" value="<?php echo $email; ?>">
-      <input type="hidden" name="content" value="<?php echo $content; ?>">
-      <h1 class="contact_title">お問い合わせ　内容確認</h1>
-      <p>お問い合わせ内容はこちらで宜しいでしょうか？<br>
-         宜しければ「送信する」ボタンを押してください
-      </p>
-      <div class="form">
-        <div>
-          <label>お名前</label>
-          <p><?php echo $name; ?></p>
+<div class="container">
+  <h1 class="company">Company Name</h1>
+  <div class="row">
+    <div class="col-10">
+      <h2>お問い合わせ</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-8">
+      <form action="confirm.php" method="post">
+        <input type="hidden" name="name" value="<?php echo $name; ?>">
+        <input type="hidden" name="name_kana" value="<?php echo $name_kana; ?>">
+        <input type="hidden" name="tel" value="<?php echo $tel; ?>">
+        <input type="hidden" name="email" value="<?php echo $email; ?>">
+        <input type="hidden" name="content" value="<?php echo $content; ?>">
+        <h1 class="contact_title">お問い合わせ　内容確認</h1>
+        <p>お問い合わせ内容はこちらで宜しいでしょうか？<br>
+          宜しければ「送信する」ボタンを押してください
+        </p>
+        <div class="form">
+          <table class="table table-bordered">
+            <tr>
+              <th>お名前</th>
+              <th><?php echo $name; ?></th>
+            </tr>
+            <tr>
+              <th>フリガナ</th>
+              <th><?php echo $name_kana; ?></th>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <th><?php echo $tel; ?></th>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <th><?php echo $email; ?></th>
+            </tr>
+            <tr>
+              <th>お問い合わせ</th>
+              <th><?php echo $content; ?></th>
+            </tr>
+          </table>
         </div>
-        <div>
-          <label>フリガナ</label>
-          <p><?php echo $name_kana; ?></p>
-        </div>
-        <div>
-          <label>電話番号</label>
-          <p><?php echo $tel; ?></p>
-        </div>
-        <div>
-          <label>メールアドレス</label>
-          <p><?php echo $email; ?></p>
-        </div>
-        <div>
-          <label>お問い合わせ</label>
-          <p><?php echo $content; ?></p>
-        </div>
-      </div>
-      <input type="button" value="内容を修正する" onclick="history.back(-1)">
-      <button type="submit" name="submit">送信する</button>
-    </form>
+        <input type="button" class="btn btn-primary" value="内容を修正する" onclick="history.back(-1)">
+        <button type="submit" name="submit" class="btn btn-success">送信する</button>
+      </form>
+    </div>
+  </div>
+<!-- container終了 -->
 </div>
-
 </body>
 </html>

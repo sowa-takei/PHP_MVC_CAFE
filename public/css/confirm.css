@@ -4,18 +4,22 @@
   box-sizing: border-box;
 }
 
-/* .main {
-  background-color: #EEEEEE;
-} */
-
-.main2 {
-  background-color: #fff;
-}
-
 .form {
   background-color: #EEEEEE;
 }
 
 p {
   display: inline-block;
+}
+
+h1.company {
+  background-color: red;
+}
+
+h2 {
+  color: aqua;
+}
+
+.main2 {
+  background-color: #fff;
 }
