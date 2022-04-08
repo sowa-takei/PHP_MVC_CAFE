@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1.company {
+ background-color:lightgreen;
+ height: 60px;
+ line-height:60px;
+ color: #fff;
+ padding-left: 60px;
+}
+
+h2 {
+  padding-left: 60px;
+  border-bottom: solid 2px;
+}
