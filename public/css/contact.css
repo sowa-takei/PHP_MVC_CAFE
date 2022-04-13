@@ -14,3 +14,7 @@ h1.company {
 h2 {
   border-bottom: solid 2px;
 }
+
+.form {
+  background-color:   red;
+}
