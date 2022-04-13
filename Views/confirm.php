@@ -1,4 +1,10 @@
 <?php
+if( ! function_exists('h') ) {
+  function h($s) {
+    echo htmlspecialchars($s, ENT_COMPAT, "UTF-8");
+  }
+}
+
 // フォームボタン押されたら
 if($_SERVER["REQUEST_METHOD"] === "POST") {
   // フォームから送信されたデータを各変数に格納
@@ -6,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
   $name_kana =$_POST["name_kana"];
   $tel = $_POST["tel"];
   $email = $_POST["email"];
-  $content  = $_POST["content"];
+  $content  =$_POST["content"];
 }
 
 // 送信ボタン押されたら
@@ -95,23 +101,23 @@ $fromName = "お問い合わせテスト";
           <table class="table table-bordered">
             <tr>
               <th>お名前</th>
-              <th><?php echo $name; ?></th>
+              <th><?php echo h($_POST['name']); ?></th>
             </tr>
             <tr>
               <th>フリガナ</th>
-              <th><?php echo $name_kana; ?></th>
+              <th><?php echo h($_POST['name_kana']); ?></th>
             </tr>
             <tr>
               <th>電話番号</th>
-              <th><?php echo $tel; ?></th>
+              <th><?php echo h($_POST['tel']); ?></th>
             </tr>
             <tr>
               <th>メールアドレス</th>
-              <th><?php echo $email; ?></th>
+              <th><?php echo h($_POST['name_kana']); ?></th>
             </tr>
             <tr>
               <th>お問い合わせ</th>
-              <th><?php echo $content; ?></th>
+              <th><?php echo nl2br(htmlspecialchars($content)); ?></th>
             </tr>
           </table>
         </div>
