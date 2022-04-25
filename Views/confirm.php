@@ -8,64 +8,15 @@ if( ! function_exists('h') ) {
 // フォームボタン押されたら
 if($_SERVER["REQUEST_METHOD"] === "POST") {
   // フォームから送信されたデータを各変数に格納
-  $name = $_POST["name"];
-  $name_kana =$_POST["name_kana"];
-  $tel = $_POST["tel"];
-  $email = $_POST["email"];
-  $content  =$_POST["content"];
+  $name       = $_POST["name"];
+  $kana       = $_POST["kana"];
+  $tel        = $_POST["tel"];
+  $email      = $_POST["email"];
+  $content    = $_POST["content"];
 }
 
-// 送信ボタン押されたら
-if(isset($_POST["submit"])) {
-  // 送信ボタンが押された時に動作する処理をここに記述する
-  // 日本語をメールで送る場合のおまじない
-
-   mb_language("ja");
-  mb_internal_encoding("UTF-8");
-
-  $subject = "［自動送信］お問い合わせ内容の確認";
-
-  $body = <<< EOM
-{$name} 様
-お問い合わせありがとうございます。
-以下のお問い合わせ内容を、メールにて確認させていただきました。
-
-===================================================
-【お名前】
-{$name}
-
-【フリガナ】
-[$name_kana]
-
-【電話番号】
-[$tel]
-
-【メールアドレス】
-[$email]
-
-【内容】
-[$content]
-===================================================
-
-内容ご確認の上、回答させていただきます。
-しばらくお待ちください。.
-EOM;
-
-// 送信元のメールアドレスを変数fromEmailに格納
-$fromEmail = "sorasouwa@yahoo.co.jp";
-
-// 送信元の名前を変数fromNameに格納
-$fromName = "お問い合わせテスト";
-
- // ヘッダ情報を変数headerに格納する
- $header = "From: " .mb_encode_mimeheader($fromName) ."<{$fromEmail}>";
 
 
- // メール送信を行う
- mb_send_mail($email, $subject, $body, $header);
- header("Location: thanks.php");
- exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -87,9 +38,9 @@ $fromName = "お問い合わせテスト";
   </div>
   <div class="row">
     <div class="col-8">
-      <form action="confirm.php" method="post">
+      <form action="thanks.php" method="post">
         <input type="hidden" name="name" value="<?php echo $name; ?>">
-        <input type="hidden" name="name_kana" value="<?php echo $name_kana; ?>">
+        <input type="hidden" name="kana" value="<?php echo $kana; ?>">
         <input type="hidden" name="tel" value="<?php echo $tel; ?>">
         <input type="hidden" name="email" value="<?php echo $email; ?>">
         <input type="hidden" name="content" value="<?php echo $content; ?>">
@@ -105,7 +56,7 @@ $fromName = "お問い合わせテスト";
             </tr>
             <tr>
               <th>フリガナ</th>
-              <th><?php echo h($_POST['name_kana']); ?></th>
+              <th><?php echo h($_POST['kana']); ?></th>
             </tr>
             <tr>
               <th>電話番号</th>
@@ -113,7 +64,7 @@ $fromName = "お問い合わせテスト";
             </tr>
             <tr>
               <th>メールアドレス</th>
-              <th><?php echo h($_POST['name_kana']); ?></th>
+              <th><?php echo h($_POST['email']); ?></th>
             </tr>
             <tr>
               <th>お問い合わせ</th>
