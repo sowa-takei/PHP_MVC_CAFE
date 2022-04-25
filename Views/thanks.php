@@ -1,3 +1,6 @@
+<?php
+require_once('../database.php');
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,8 +10,20 @@
   <title>お問い合わせフォーム</title>
 </head>
 <body>
-  <div><h1 class="company">Company Name</h1></div>
-  <div><h2>お問い合わせ</h2></div>
+  <?php
+    $name = $_POST['name'];
+    $kana = $_POST['kana'];
+    $tel = $_POST['tel'];
+    $email = $_POST['email'];
+    $content = $_POST['content'];
+    $sql = "INSERT INTO contacts(name, kana, tel,email,body,created_at) VALUES (:name, :kana, :tel, :email, :body, now())";
+    $stmt = $dbh->prepare($sql);
+    $params = array(":name" => $name, ':kana' => $kana, ':tel' => $tel, ':email' => $email, ':body' => $content);
+    $stmt->execute($params);
+    //データベース切断
+    $dbh = null;
+
+  ?>
   <div>
     <div>
       <h1>お問い合わせ 送信完了</h1>
