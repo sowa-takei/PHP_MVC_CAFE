@@ -12,13 +12,13 @@ var validate = function() {
 	}
 
 	// ふりがなの入力をチェック
-	if(document.form.name_kana.value == ""){
-		errorElement(document.form.name_kana, "ふりがなが入力されていません");
+	if(document.form.kana.value == ""){
+		errorElement(document.form.kana, "ふりがなが入力されていません");
     flag = false;
 	} else {
 		// メールアドレスの形式をチェック
-		if(!validateKana(document.form.name_kana.value)){
-			errorElement(document.form.name_kana, "ひらがな以外の文字が入っています");
+		if(!validateKana(document.form.kana.value)){
+			errorElement(document.form.kana, "カタカナ以外の文字が入っています");
       flag = false;
 		}
 	}
@@ -115,7 +115,7 @@ var validateTel = function (val){
 
 
 var validateKana = function (val){
-	if (val.match(/^[ぁ-ん]+$/) == null) {
+	if (val.match(/^[ァ-ロワヲンー]+$/) == null) {
 		return false;
 	} else {
 		return true;
