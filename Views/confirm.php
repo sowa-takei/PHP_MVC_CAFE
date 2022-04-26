@@ -15,8 +15,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
   $content    = $_POST["content"];
 }
 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -25,8 +23,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせフォーム</title>
-  <link rel="stylesheet" href="../public/css/confirm.css">
-  <link rel="stylesheet" href="../public/css/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/confirm.css">
+  <link rel="stylesheet" href="./css/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">

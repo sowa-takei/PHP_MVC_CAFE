@@ -14,6 +14,7 @@ try {
 
 
 
+
 $error_message = array();
   if( isset($_POST["btn"] ) && $_POST["btn"] ){
     //エラー項目の確認
@@ -52,8 +53,8 @@ $error_message = array();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ</title>
-  <link rel="stylesheet" href="../public/css/contact.css">
-  <link rel="stylesheet" href="../public/css/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/contact.css">
+  <link rel="stylesheet" href="./css/css/bootstrap.min.css">
   <script type="text/javascript" src="contact.js"></script>
 </head>
 <body>
@@ -119,8 +120,8 @@ $error_message = array();
       <th><?php echo $column['tel'] ?></th>
       <th><?php echo $column['email'] ?></th>
       <th><?php echo $column['body'] ?></th>
-      <td><a href="../views/edit_form.php?id=<?php echo $column['id'] ?>">編集</td>
-      <td><a href="../views/contact.php?id=<?php echo $column['id'] ?>" onclick="submitChk();">削除</a></td>
+      <td><a href="./edit_form.php?id=<?php echo $column['id'] ?>">編集</td>
+      <td><a href="./contact.php?id=<?php echo $column['id'] ?>" onclick="submitChk();">削除</a></td>
     </tr>
     <?php endforeach; ?>
   </table>

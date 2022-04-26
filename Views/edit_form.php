@@ -15,6 +15,36 @@ try {
         echo 'エラーが発生しました。:' . $e->getMessage();
 }
 
+$error_message = array();
+  if( isset($_POST["btn"] ) && $_POST["btn"] ){
+    //エラー項目の確認
+    //ニックネームが空の場合
+    if( !$_POST['name'] ) {
+	    $error_message[] = "名前を入力してください";
+    } else if( mb_strlen($_POST['name']) > 100 ){
+	    $error_message[] = "名前は10文字以内にしてください";
+    }
+
+    if(!$_POST['kana']) {
+      $error_message[] = "フリガナを入力してください";
+    } else if( mb_strlen($_POST['kana']) > 100 ) {
+      $error_message[] = "カナは10文字以内にしてください";
+    }
+    if(! preg_match("/^[0-9]+$/", $tel)){
+      $error_message[] = "数字を見直してください";
+    }
+    if(!$_POST['email']) {
+      $error_message[] = "メールアドレスを入力してください";
+    } else if(! filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
+      $error_message[] = "正しく入力してください";
+    }
+    if(!$_POST['content']) {
+      $error_message[] = "問い合わせ内容を記述してください";
+    }
+  }
+  if (!empty($_POST['name']) && ($_POST['kana']) && ($_POST['email']) && ($_POST['content'])){
+    header("Location: update.php", true, 307);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -23,8 +53,8 @@ try {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせ編集ページ</title>
-  <link rel="stylesheet" href="../public/css/contact.css">
-  <link rel="stylesheet" href="../public/css/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/contact.css">
+  <link rel="stylesheet" href="./css/css/bootstrap.min.css">
   <script type="text/javascript" src="contact.js"></script>
 </head>
 <body>
@@ -41,7 +71,7 @@ try {
     }
   ?>
   <div class="row mt-5">
-  <form action="update.php" method="POST" name="form" onsubmit="return validate()" >
+  <form action="edit_form.php" method="POST" name="form"  >
   <input type="hidden" name="id" value="<?php echo $id; ?>">
     <h1 class="contact-title">お問い合わせ 内容変更します</h1>
     <p>お問い合わせ内容ご入力の上,「編集する」ボタンをクリックしてください。</p>

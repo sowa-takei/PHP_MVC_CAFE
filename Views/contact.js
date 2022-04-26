@@ -7,7 +7,7 @@ var validate = function() {
 
 	// お名前の入力をチェック
 	if(document.form.name.value == ""){
-		errorElement(document.form.name, "名前入力必須って書いてあるだろカス ");
+		errorElement(document.form.name, "名前が入力されていません ");
 		flag = false;
 	}
 

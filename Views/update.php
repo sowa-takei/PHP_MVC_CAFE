@@ -23,6 +23,6 @@ $dbh = null;
 </head>
 <body>
 <h1>更新完了です</h1>
-  <p><a href="../views/contact.php">問い合わせ入力に戻る</a></p>
+  <p><a href="./contact.php">問い合わせ入力に戻る</a></p>
 </body>
 </html>
