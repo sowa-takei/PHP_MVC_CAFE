@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form {
+  background-color: #EEEEEE;
+}
+
+p {
+  display: inline-block;
+}
+
+h1.company {
+  background-color: red;
+}
+
+h2 {
+  color: aqua;
+}
+
+.main2 {
+  background-color: #fff;
+}
