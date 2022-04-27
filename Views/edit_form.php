@@ -1,6 +1,5 @@
 <?php
 require_once('../Models/Contact.php');
-$id = $_GET['id'];
 try {
 
   $stmt = $dbh->prepare('SELECT * FROM contacts WHERE id = :id');
@@ -71,7 +70,7 @@ $error_message = array();
     }
   ?>
   <div class="row mt-5">
-  <form action="edit_form.php" method="POST" name="form"  >
+  <form action="edit_form.php" method="POST" name="form" onsubmit="return validate()" >
   <input type="hidden" name="id" value="<?php echo $id; ?>">
     <h1 class="contact-title">お問い合わせ 内容変更します</h1>
     <p>お問い合わせ内容ご入力の上,「編集する」ボタンをクリックしてください。</p>
